@@ -1,6 +1,10 @@
 'use strict';
 
-import express from "express";
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan'
+import { dbConnection } from "./mongo.js";
 
 class Server {
     constructor() {
@@ -12,7 +16,11 @@ class Server {
     }
 
     middlewares() {
-
+        this.app.use(express.urlencoded({ extended: false }));
+        this.app.use(cors());
+        this.app.use(express.json());
+        this.app.use(helmet());
+        this.app.use(morgan('dev'));
     }
 
     startServer() {
@@ -26,7 +34,7 @@ class Server {
     }
 
     async conectDB() {
-
+        await dbConnection();
     }
 }
 
