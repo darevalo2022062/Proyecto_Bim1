@@ -3,19 +3,19 @@ import { Schema, model } from 'mongoose';
 const ProductSchema = Schema({
     nombre: {
         type: String,
-        required: [true, "El nombre es obligatorio"]
+        required: [true, 'The "nombre" data is mandatory']
     },
     detalles: {
         type: String,
-        required: [true, "Los detalles es algo obligatoria"]
+        required: [true, 'The "detalles" data is mandatory']
     },
     categoria: {
         type: String,
-        required: [true, "La categoría del producto es obligatoria"]
+        required: [true, 'The "categoría" data is mandatory']
     },
     stock: {
         type: Number,
-        required: [true, "La cantidad de stock inicial es obligatoria"]
+        required: [true, 'The "stock" data is mandatory']
     }
 });
 

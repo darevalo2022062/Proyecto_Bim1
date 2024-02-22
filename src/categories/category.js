@@ -3,11 +3,11 @@ import { Schema, model } from 'mongoose';
 const CategorySchema = Schema({
     nombre: {
         type: String,
-        required: [true, "El nombre de la catogoría es obligatorio"]
+        required: [true, 'The "nombre" data is mandatory']
     },
     detalles: {
         type: String,
-        required: [true, "los detalles de la categoría son obligatorios"]
+        required: [true, 'The "detalles" data is mandatory']
     },
     estado: {
         type: Boolean,
