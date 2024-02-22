@@ -31,7 +31,7 @@ router.delete(
 router.get(
     '/viewCategory',
     [
-        
+
     ], categoryGet
 );
 
