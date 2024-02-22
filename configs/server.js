@@ -6,10 +6,13 @@ import helmet from 'helmet';
 import morgan from 'morgan'
 import { dbConnection } from "./mongo.js";
 
+import categoryPath from '../src/categories/category.routes.js';
+
 class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT_NUMBER;
+        this.categoryPath = '/shopKinal/v1/category'
         this.middlewares();
         this.routes();
         this.conectDB();
@@ -30,7 +33,7 @@ class Server {
     }
 
     routes() {
-
+        this.app.use(this.categoryPath, categoryPath);
     }
 
     async conectDB() {

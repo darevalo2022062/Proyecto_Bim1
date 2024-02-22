@@ -8,6 +8,10 @@ const CategorySchema = Schema({
     detalles: {
         type: String,
         required: [true, "los detalles de la categoría son obligatorios"]
+    },
+    estado: {
+        type: Boolean,
+        default: true
     }
 });
 
