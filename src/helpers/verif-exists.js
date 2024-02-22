@@ -6,3 +6,4 @@ export const verifCategory = async (nombre = '') => {
         throw new Error("This category does not exist");
     }
 }
+

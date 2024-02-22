@@ -46,3 +46,19 @@ export const categoryGet = async (req, res) => {
     });
 
 }
+
+export const categoryPut = async (req, res) => {
+    const { nombre, detalles } = req.body;
+    const nombreCategory = req.params.nombreCat;
+
+    //ENCONTRAR ID
+    const query = { nombre: nombreCategory, estado: true };
+    const categoria = await Category.findOne(query);
+
+    await Category.findByIdAndUpdate(categoria._id, { nombre: nombre, detalles: detalles });
+
+    res.status(200).json({
+        msg: "Datos Actualizados"
+    });
+
+}
