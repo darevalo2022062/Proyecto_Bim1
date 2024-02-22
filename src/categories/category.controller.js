@@ -24,3 +24,25 @@ export const categoryDelete = async (req, res) => {
         msg: "Category successfully removed"
     });
 }
+
+export const categoryGet = async (req, res) => {
+    const categorias = await Category.find({ estado: true });
+    if (!categorias) {
+        return res.status(400).json({
+            msg: "There are no categories"
+        });
+    }
+
+    const categoriasDes = categorias.map(categorias => {
+        return {
+            nombre: categorias.nombre,
+            detalles: categorias.detalles
+        };
+    });
+
+    res.status(200).json({
+        msg: "|-----Categories-----|",
+        categoriasDes
+    });
+
+}

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { check } from 'express-validator';
-import { categoryDelete, categoryPost } from "./category.controller.js";
+import { categoryDelete, categoryGet, categoryPost } from "./category.controller.js";
 import { validar } from "../middlewares/validar-campos.js";
 import { existenciaCategory } from "../helpers/validar-existencias.js";
 import { verifCategory } from "../helpers/verif-exists.js";
@@ -25,6 +25,14 @@ router.delete(
         check("nombre").custom(verifCategory),
         validar
     ], categoryDelete
+);
+
+//Visualizar categorías
+router.get(
+    '/viewCategory',
+    [
+        
+    ], categoryGet
 );
 
 export default router;
