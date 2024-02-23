@@ -16,6 +16,10 @@ const ProductSchema = Schema({
     stock: {
         type: Number,
         required: [true, 'The "stock" data is mandatory']
+    },
+    estado: {
+        type: Boolean,
+        default: true
     }
 });
 
