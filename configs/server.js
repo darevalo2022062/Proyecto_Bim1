@@ -16,6 +16,7 @@ class Server {
         this.middlewares();
         this.routes();
         this.conectDB();
+        global.existenciaPrevia = '';
     }
 
     middlewares() {
