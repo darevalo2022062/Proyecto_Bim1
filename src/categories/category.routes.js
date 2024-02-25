@@ -4,6 +4,7 @@ import { categoryDelete, categoryPost } from "./category.controller.js";
 import { validar } from "../middlewares/validar-campos.js";
 import { existenciaCategory } from "../helpers/validar-existencias.js";
 import { verifCategory } from "../helpers/verif-exists.js";
+import { categoryDeleted } from "../helpers/updates_product.js";
 const router = Router();
 
 //Creación Categoría
@@ -23,6 +24,7 @@ router.delete(
     [
         check("nombre").not().isEmpty(),
         check("nombre").custom(verifCategory),
+        check('nombre').custom(categoryDeleted),
         validar
     ], categoryDelete
 );
