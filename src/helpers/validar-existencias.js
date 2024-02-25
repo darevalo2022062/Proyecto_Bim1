@@ -2,7 +2,6 @@ import Category from "../categories/category.js";
 import Product from "../products/product.js";
 
 
-//EXISTENCIAS COMO MODELOS DIRECTOS
 export const existenciaCategory = async (nombre = '') => {
     const exists = await Category.findOne({ nombre: nombre, estado: true });
     if (exists) {
