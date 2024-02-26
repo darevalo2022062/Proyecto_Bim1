@@ -4,7 +4,6 @@ import { categoryDelete, categoryGet, categoryPost, categoryPut } from "./catego
 import { validar } from "../middlewares/validar-campos.js";
 import { existenciaCategory } from "../helpers/validar-existencias.js";
 import { verifCategory } from "../helpers/verif-exists.js";
-import { verifExistsParam } from "../middlewares/category-middleware.js";
 const router = Router();
 
 //Creación Categoría
@@ -38,12 +37,10 @@ router.get(
 
 //Editar Categorías
 router.put(
-    "/updateCategory/:nombreCat",
+    "/updateCategory",
     [
         check("nombre").not().isEmpty(),
-        check("nombre").custom(existenciaCategory),
-        check("detalles").not().isEmpty(),
-        verifExistsParam,
+        check("nuevoNombre").custom(existenciaCategory),
         validar
     ], categoryPut
 );

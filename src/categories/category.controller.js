@@ -48,14 +48,16 @@ export const categoryGet = async (req, res) => {
 }
 
 export const categoryPut = async (req, res) => {
-    const { nombre, detalles } = req.body;
-    const nombreCategory = req.params.nombreCat;
-
+    var { nombre, nuevoNombre, detalles } = req.body;
     //ENCONTRAR ID
-    const query = { nombre: nombreCategory, estado: true };
-    const categoria = await Category.findOne(query);
+    const categoria = await Category.findOne({ nombre: nombre, estado: true });
 
-    await Category.findByIdAndUpdate(categoria._id, { nombre: nombre, detalles: detalles });
+    //Sí existen datos vacíos
+    !nuevoNombre ? nuevoNombre = nombre : nuevoNombre = nuevoNombre;
+    !detalles ? detalles = categoria.detalles : detalles = detalles;
+
+    //ACtualización
+    await Category.findByIdAndUpdate(categoria._id, { nombre: nuevoNombre, detalles: detalles });
 
     res.status(200).json({
         msg: "Datos Actualizados"
