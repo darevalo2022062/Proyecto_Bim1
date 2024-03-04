@@ -1,0 +1,80 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Categories",
+    "dateExported": "2024-03-04T17:37:12.267Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "dd844cbc-c1bd-4bac-b0fe-f05cba4e4ae5",
+            "colId": "678cafc6-1b1d-4d91-b491-8115c23f2690",
+            "containerId": "",
+            "name": "create_category",
+            "url": "http://localhost:3000/shopKinal/v1/category/new",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-04T13:21:12.249Z",
+            "modified": "2024-03-04T13:41:33.819Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"Gaseosas\",\n  \"detalles\":\"Son rikas\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "74823b22-d47e-4b25-aa39-9b5ed593a9a1",
+            "colId": "678cafc6-1b1d-4d91-b491-8115c23f2690",
+            "containerId": "",
+            "name": "delete_category",
+            "url": "http://localhost:3000/shopKinal/v1/category/delete",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2024-03-04T13:38:31.576Z",
+            "modified": "2024-03-04T13:45:40.086Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"Cereales\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "69d70112-f024-43ab-9002-19a309f81b93",
+            "colId": "678cafc6-1b1d-4d91-b491-8115c23f2690",
+            "containerId": "",
+            "name": "view_category",
+            "url": "http://localhost:3000/shopKinal/v1/category/view",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-03-04T13:41:07.507Z",
+            "modified": "2024-03-04T13:41:15.897Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "440a7006-bf98-47f2-9c42-b81bbcb12806",
+            "colId": "678cafc6-1b1d-4d91-b491-8115c23f2690",
+            "containerId": "",
+            "name": "update_category",
+            "url": "http://localhost:3000/shopKinal/v1/category/update",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-03-04T13:46:14.180Z",
+            "modified": "2024-03-04T14:12:20.596Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"Cereales\",\n  \"nuevoNombre\":\"Granos\",\n  \"detalles\":\"Todos los cereales bases\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

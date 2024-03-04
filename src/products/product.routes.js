@@ -4,6 +4,7 @@ import { check } from 'express-validator';
 import { verifCategory } from '../helpers/verif-exists.js';
 import { validar } from '../middlewares/validar-campos.js';
 import { existenciaProduct } from '../helpers/validar-existencias.js';
+import { validarAdmin } from '../middlewares/role_validation.js';
 
 const router = Router();
 
@@ -11,6 +12,7 @@ const router = Router();
 router.post(
     '/new',
     [
+        validarAdmin,
         check('nombre').not().isEmpty().withMessage('The field "nombre" is empty ❌'),
         check('nombre').custom(existenciaProduct),
         check('detalles').not().isEmpty().withMessage('The field "detalles" is empty ❌'),

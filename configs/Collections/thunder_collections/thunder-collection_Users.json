@@ -1,0 +1,47 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Users",
+    "dateExported": "2024-03-04T17:37:54.187Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "c4032b62-ffab-493b-ac57-32b50246825e",
+            "colId": "7b87abf7-b855-4df2-858b-aead6b703f70",
+            "containerId": "",
+            "name": "Register_client",
+            "url": "http://localhost:3000/shopKinal/v1/user/registerClient",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-04T16:41:21.771Z",
+            "modified": "2024-03-04T16:48:50.594Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userName\":\"Dieguito\",\n  \"email\":\"diegoAlvare@gmail.com\",\n  \"password\":\"12345\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a1668141-9215-4391-a29c-d8cf74d45e43",
+            "colId": "7b87abf7-b855-4df2-858b-aead6b703f70",
+            "containerId": "",
+            "name": "Register_Admin",
+            "url": "http://localhost:3000/shopKinal/v1/user/registerAdmin",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-04T16:56:50.101Z",
+            "modified": "2024-03-04T16:57:22.334Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userName\":\"David Areva\",\n  \"email\":\"darevalo@gmail.com\",\n  \"password\":\"12345\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

@@ -13,3 +13,17 @@ export const emailExistence = async (email) => {
         throw new Error("This email is already in use, please choose another one :)");
     }
 }
+
+export const existenceIdentifier = async (identifier) => {
+    var user = await User.findOne({
+        $or: [
+            { username: identifier },
+            { email: identifier }
+        ]
+    });
+
+    if (!user) {
+        throw new Error("This user does not exists in DB :(");
+    }
+
+}

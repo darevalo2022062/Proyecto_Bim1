@@ -5,6 +5,7 @@ import { validar } from "../middlewares/validar-campos.js";
 import { existenciaCategory } from "../helpers/validar-existencias.js";
 import { verifCategory } from "../helpers/verif-exists.js";
 import { categoryDeleted } from "../middlewares/updates_product.js";
+import { validarAdmin } from "../middlewares/role_validation.js";
 
 const router = Router();
 
@@ -12,6 +13,7 @@ const router = Router();
 router.post(
     '/new',
     [
+        validarAdmin,
         check("nombre").not().isEmpty().withMessage('The field "nombre" is empty ❌'),
         check("nombre").custom(existenciaCategory),
         check("detalles").not().isEmpty().withMessage('The field "detalles" is empty ❌'),
@@ -23,6 +25,7 @@ router.post(
 router.delete(
     '/delete',
     [
+        validarAdmin,
         check("nombre").not().isEmpty().withMessage('The field "nombre" is empty ❌'),
         check("nombre").custom(verifCategory),
         check('nombre').custom(categoryDeleted),
@@ -34,7 +37,7 @@ router.delete(
 router.get(
     '/view',
     [
-
+        validarAdmin
     ], categoryGet
 );
 
@@ -42,6 +45,7 @@ router.get(
 router.put(
     "/update",
     [
+        validarAdmin,
         check("nombre").not().isEmpty().withMessage('The field "nombre" is empty ❌'),
         check("nombre").custom(verifCategory),
         check("nuevoNombre").custom(existenciaCategory),
