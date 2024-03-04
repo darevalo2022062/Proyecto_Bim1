@@ -5,26 +5,25 @@ import { validar } from "../middlewares/validar-campos.js";
 import { existenciaCategory } from "../helpers/validar-existencias.js";
 import { verifCategory } from "../helpers/verif-exists.js";
 import { categoryDeleted } from "../helpers/updates_product.js";
-import { verifExistsParam } from "../middlewares/category-middleware.js";
 
 const router = Router();
 
 //Creación Categoría
 router.post(
-    '/newCategory',
+    '/new',
     [
-        check("nombre").not().isEmpty(),
+        check("nombre").not().isEmpty().withMessage('The field "nombre" is empty ❌'),
         check("nombre").custom(existenciaCategory),
-        check("detalles").not().isEmpty(),
+        check("detalles").not().isEmpty().withMessage('The field "detalles" is empty ❌'),
         validar
     ], categoryPost
 );
 
 //ELiminación de Categoría
 router.delete(
-    '/deleteCategory',
+    '/delete',
     [
-        check("nombre").not().isEmpty(),
+        check("nombre").not().isEmpty().withMessage('The field "nombre" is empty ❌'),
         check("nombre").custom(verifCategory),
         check('nombre').custom(categoryDeleted),
         validar
@@ -33,7 +32,7 @@ router.delete(
 
 //Visualizar categorías
 router.get(
-    '/viewCategory',
+    '/view',
     [
 
     ], categoryGet
@@ -41,12 +40,11 @@ router.get(
 
 //Editar Categorías
 router.put(
-    "/updateCategory/:nombreCat",
+    "/update",
     [
-        check("nombre").not().isEmpty(),
-        check("nombre").custom(existenciaCategory),
-        check("detalles").not().isEmpty(),
-        verifExistsParam,
+        check("nombre").not().isEmpty().withMessage('The field "nombre" is empty ❌'),
+        check("nombre").custom(verifCategory),
+        check("nuevoNombre").custom(existenciaCategory),
         validar
     ], categoryPut
 );

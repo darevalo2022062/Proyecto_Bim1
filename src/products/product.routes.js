@@ -9,14 +9,14 @@ const router = Router();
 
 //Crear Producto
 router.post(
-    '/newProduct',
+    '/new',
     [
-        check('nombre').not().isEmpty(),
+        check('nombre').not().isEmpty().withMessage('The field "nombre" is empty ❌'),
         check('nombre').custom(existenciaProduct),
-        check('detalles').not().isEmpty(),
-        check('categoria').not().isEmpty(),
+        check('detalles').not().isEmpty().withMessage('The field "detalles" is empty ❌'),
+        check('categoria').not().isEmpty().withMessage('The field "categoria" is empty ❌'),
         check('categoria').custom(verifCategory),
-        check('stock').not().isEmpty(),
+        check('stock').not().isEmpty().withMessage('The field "stock" is empty ❌'),
         validar
     ], productPost
 );

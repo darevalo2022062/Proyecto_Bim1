@@ -16,7 +16,7 @@ export const categoryPost = async (req, res) => {
     }
 
     res.status(200).json({
-        msg: "Category Created Successfully",
+        msg: "Category Created Successfully✅",
         categoria
     });
 
@@ -30,7 +30,7 @@ export const categoryDelete = async (req, res) => {
     await Category.findByIdAndUpdate(id, { estado: false });
 
     res.status(200).json({
-        msg: "Category successfully removed"
+        msg: "Category successfully removed✅"
     });
 }
 
@@ -38,7 +38,7 @@ export const categoryGet = async (req, res) => {
     const categorias = await Category.find({ estado: true });
     if (!categorias) {
         return res.status(400).json({
-            msg: "There are no categories"
+            msg: "There are no categories ❌"
         });
     }
 
@@ -57,17 +57,22 @@ export const categoryGet = async (req, res) => {
 }
 
 export const categoryPut = async (req, res) => {
-    const { nombre, detalles } = req.body;
-    const nombreCategory = req.params.nombreCat;
+    const { nombre, nuevoNombre, detalles } = req.body;
+
+    if (nuevoNombre == '' || detalles == '') {
+        return res.status(200).json({
+            msg: "You cannot enter empty data ❌"
+        });
+    }
 
     //ENCONTRAR ID
-    const query = { nombre: nombreCategory, estado: true };
+    const query = { nombre: nombre, estado: true };
     const categoria = await Category.findOne(query);
 
-    await Category.findByIdAndUpdate(categoria._id, { nombre: nombre, detalles: detalles });
+    await Category.findByIdAndUpdate(categoria._id, { nombre: nuevoNombre, detalles: detalles });
 
     res.status(200).json({
-        msg: "Datos Actualizados"
+        msg: "Data updated successfully✅"
     });
 
 }
