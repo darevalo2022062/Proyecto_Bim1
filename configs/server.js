@@ -8,6 +8,7 @@ import { dbConnection } from "./mongo.js";
 
 import categoryPath from '../src/categories/category.routes.js';
 import productPath from '../src/products/product.routes.js';
+import userPath from '../src/users/user.routes.js';
 
 class Server {
     constructor() {
@@ -15,6 +16,7 @@ class Server {
         this.port = process.env.PORT_NUMBER;
         this.categoryPath = '/shopKinal/v1/category';
         this.productPath = '/shopKinal/v1/product';
+        this.userPath = '/shopKinal/v1/user';
         this.middlewares();
         this.routes();
         this.conectDB();
@@ -38,6 +40,7 @@ class Server {
     routes() {
         this.app.use(this.categoryPath, categoryPath);
         this.app.use(this.productPath, productPath);
+        this.app.use(this.userPath, userPath);
     }
 
     async conectDB() {

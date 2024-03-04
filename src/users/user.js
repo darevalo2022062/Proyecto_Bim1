@@ -11,7 +11,7 @@ const UserSchema = Schema({
     },
     password: {
         type: String,
-        required: [true, 'The "pssword" data is mandatory']
+        required: [true, 'The "password" data is mandatory']
     },
     role: {
         type: String,
