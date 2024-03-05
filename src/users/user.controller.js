@@ -56,3 +56,11 @@ export const updateUser = async (req, res) => {
     });
 }
 
+export const deleteUser = async (req, res) => {
+    const { userName } = req.body;
+    await User.findOneAndUpdate({ userName: userName }, { $set: { estado: false } });
+    res.status(200).json({
+        msg: "User delete successfully✅",
+    });
+}
+

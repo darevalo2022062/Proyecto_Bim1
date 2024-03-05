@@ -47,7 +47,7 @@ export const userNameVerifExistence = async (userName) => {
 }
 
 export const isClient = async (userName) => {
-    const existence = await User.findOne({ userName: userName, role: 'CLIENT' });
+    const existence = await User.findOne({ userName: userName, role: 'CLIENT', estado: true });
     if (!existence) {
         throw new Error("This CLIENT does not exist, sorry :c");
     }
