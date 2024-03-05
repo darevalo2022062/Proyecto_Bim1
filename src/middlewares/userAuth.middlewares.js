@@ -17,7 +17,7 @@ export const emailExistence = async (email) => {
 export const existenceIdentifier = async (identifier) => {
     var user = await User.findOne({
         $or: [
-            { username: identifier },
+            { userName: identifier },
             { email: identifier }
         ]
     });

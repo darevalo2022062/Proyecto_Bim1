@@ -7,7 +7,7 @@ export const login = async (req, res) => {
     var { identifier, password } = req.body;
     var user = await User.findOne({
         $or: [
-            { username: identifier },
+            { userName: identifier },
             { email: identifier }
         ]
     });
