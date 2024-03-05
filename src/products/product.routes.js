@@ -1,10 +1,11 @@
 import { Router } from 'express';
-import { productPost } from './product.controller.js';
+import { productPost, productViewComplete } from './product.controller.js';
 import { check } from 'express-validator';
 import { verifCategory } from '../helpers/verif-exists.js';
 import { validar } from '../middlewares/validar-campos.js';
 import { existenciaProduct } from '../helpers/validar-existencias.js';
 import { validarAdmin } from '../middlewares/role_validation.js';
+import { verifExistencesProducts } from '../middlewares/products.middlewares.js';
 
 const router = Router();
 
@@ -23,6 +24,16 @@ router.post(
     ], productPost
 );
 
+
+//Visualizar todo el catálogo
+router.get(
+    '/getCatalogue',
+    [
+        validarAdmin,
+        verifExistencesProducts,
+        validar
+    ], productViewComplete
+);
 
 
 

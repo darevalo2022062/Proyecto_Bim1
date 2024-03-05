@@ -19,3 +19,19 @@ export const productPost = async (req, res) => {
     });
 
 }
+
+export const productViewComplete = async (req, res) => {
+    const allProducts = await Product.find({ estado: true });
+    const catalogue = allProducts.map(product => {
+        return {
+            nombre: product.nombre,
+            detalles: product.detalles,
+            categoria: product.categoria,
+            stock: product.stock
+        }
+    });
+    res.status(200).json({
+        msg: "|------------PRODUCT CATALOG------------|",
+        catalogue
+    });
+}
