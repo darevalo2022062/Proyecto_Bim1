@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { addUser, registerAdmin, registerCliente } from "./user.controller.js";
+import { addUser, registerAdmin, registerCliente, updateUser } from "./user.controller.js";
 import { check } from "express-validator";
-import { emailExistence, userNameExistence } from "../middlewares/userAuth.middlewares.js";
+import { emailExistence, emailExistenceUpdate, isClient, userNameExistence, userNameVerifExistence } from "../middlewares/userAuth.middlewares.js";
 import { validar } from "../middlewares/validar-campos.js";
 import { validarAdmin } from "../middlewares/role_validation.js";
 
@@ -42,8 +42,24 @@ router.post(
         check('email').isEmail(),
         check('password').isLength({ min: 5 }).withMessage('The password needs at least 5 characters ❌'),
         check('userName').custom(userNameExistence),
-        check('email').custom(emailExistence)
+        check('email').custom(emailExistence),
+        validar
     ], addUser
+);
+
+router.put(
+    '/updateUser',
+    [
+        validarAdmin,
+        check("userName").not().isEmpty().withMessage('The field "userName" is empty ❌'),
+        check('userName').custom(userNameVerifExistence),
+        check('userName').custom(isClient),
+        check('email').not().isEmpty().withMessage('The field "email" is empty ❌'),
+        check('email').isEmail(),
+        check('newUserName').custom(userNameExistence),
+        check('email').custom(emailExistenceUpdate),
+        validar
+    ], updateUser
 );
 
 

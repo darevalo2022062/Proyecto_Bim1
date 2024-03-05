@@ -9,7 +9,7 @@ export const validarAdmin = async (req, res, next) => {
         });
     }
     const idUser = jwt.verify(token, process.env.PASSWEBTOKEN);
-    const userResult = User.findById(idUser);
+    const userResult = await User.findById(idUser.userId);
     if (userResult.role != 'ADMIN') {
         return res.status(400).json({
             msg: 'This action is only available for ADMINS 👨🏽‍💼❌'

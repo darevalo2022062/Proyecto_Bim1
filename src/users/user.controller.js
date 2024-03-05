@@ -34,11 +34,25 @@ export const addUser = async (req, res) => {
     password = bcrypt.hashSync(password, 10);
 
     const user = new User({ userName, email, password, role });
-
     await user.save();
     res.status(200).json({
         msg: "User successfully added✅",
         user
     });
 
-} 
+}
+
+export const updateUser = async (req, res) => {
+    var { userName, newUserName, email, role } = req.body;
+
+    if (role == 'ADMIN' || role == 'CLIENT') {
+        await User.findOneAndUpdate({ userName: userName }, { $set: { userName: newUserName, email: email, role: role } });
+        return res.status(200).json({
+            msg: "User udapted successfully✅",
+        });
+    }
+    return res.status(400).json({
+        msg: "Invalid role"
+    });
+}
+
