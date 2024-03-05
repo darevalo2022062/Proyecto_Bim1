@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { registerAdmin, registerCliente } from "./user.controller.js";
+import { addUser, registerAdmin, registerCliente } from "./user.controller.js";
 import { check } from "express-validator";
 import { emailExistence, userNameExistence } from "../middlewares/userAuth.middlewares.js";
 import { validar } from "../middlewares/validar-campos.js";
+import { validarAdmin } from "../middlewares/role_validation.js";
 
 const router = Router();
 
@@ -30,6 +31,19 @@ router.post(
         check('email').custom(emailExistence),
         validar
     ], registerAdmin
+);
+
+router.post(
+    '/addUser',
+    [
+        validarAdmin,
+        check("userName").not().isEmpty().withMessage('The field "userName" is empty ❌'),
+        check('email').not().isEmpty().withMessage('The field "email" is empty ❌'),
+        check('email').isEmail(),
+        check('password').isLength({ min: 5 }).withMessage('The password needs at least 5 characters ❌'),
+        check('userName').custom(userNameExistence),
+        check('email').custom(emailExistence)
+    ], addUser
 );
 
 

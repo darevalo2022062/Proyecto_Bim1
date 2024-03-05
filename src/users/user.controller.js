@@ -28,3 +28,17 @@ export const registerAdmin = async (req, res) => {
         user
     });
 }
+
+export const addUser = async (req, res) => {
+    var { userName, email, password, role } = req.body;
+    password = bcrypt.hashSync(password, 10);
+
+    const user = new User({ userName, email, password, role });
+
+    await user.save();
+    res.status(200).json({
+        msg: "User successfully added✅",
+        user
+    });
+
+} 
