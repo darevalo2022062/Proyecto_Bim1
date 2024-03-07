@@ -41,15 +41,14 @@ export const productViewComplete = async (req, res) => {
 //Visiualizar productos individuales
 export const productViewOne = async (req, res) => {
     const { nombre } = req.body;
-    const productoFind = Product.findOne({ nombre: nombre });
-    const productClean = productoFind.map(product => {
-        return {
-            nombre: product.nombre,
-            detalles: product.detalles,
-            categoria: product.categoria,
-            stock: product.stock
-        }
-    });
+    const product = await Product.findOne({ nombre: nombre });
+    const productClean = {
+        nombre: product.nombre,
+        detalles: product.detalles,
+        categoria: product.categoria,
+        stock: product.stock
+    }
+
     res.status(200).json({
         msg: "|------------PRODUCT CATALOG------------|",
         productClean
