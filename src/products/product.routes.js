@@ -50,6 +50,7 @@ router.get(
 router.put(
     '/update',
     [
+        validarAdmin,
         check('nombre').not().isEmpty().withMessage('The field "nombre" is empty ❌'),
         check('nombre').custom(verifProduct),
         check('categoria').custom(existenceCategoryUpdate),
