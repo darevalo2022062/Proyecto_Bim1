@@ -106,3 +106,12 @@ export const productViewInventory = async (req, res) => {
         catalogue
     });
 }
+
+//Eliminar un producto
+export const productDelete = async (req, res) => {
+    var { nombre } = req.body;
+    await Product.findOneAndUpdate({ nombre: nombre }, { $set: { estado: false } });
+    res.status(200).json({
+        msg: "Deleted Successfully!"
+    });
+}

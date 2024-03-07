@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { productEdit, productPost, productViewComplete, productViewInventory, productViewOne } from './product.controller.js';
+import { productDelete, productEdit, productPost, productViewComplete, productViewInventory, productViewOne } from './product.controller.js';
 import { check } from 'express-validator';
 import { verifCategory, verifProduct } from '../helpers/verif-exists.js';
 import { validar } from '../middlewares/validar-campos.js';
@@ -69,6 +69,15 @@ router.put(
     ], productEdit
 );
 
-
+//Eliminar un producto
+router.delete(
+    '/delete',
+    [
+        validarAdmin,
+        check('nombre').not().isEmpty().withMessage('The field "nombre" is empty ❌'),
+        check('nombre').custom(verifProduct),
+        validar
+    ], productDelete
+);
 
 export default router;
