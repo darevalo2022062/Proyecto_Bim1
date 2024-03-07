@@ -54,3 +54,31 @@ export const productViewOne = async (req, res) => {
         productClean
     });
 }
+
+//Editar detalles específicos de un producto
+export const productEdit = async (req, res) => {
+    var { nombre, nuevoNombre, detalles, categoria, stock } = req.body;
+
+    const camposActualizables = {};
+    if (nuevoNombre) camposActualizables.nuevoNombre = nuevoNombre;
+    if (detalles) camposActualizables.detalles = detalles;
+    if (categoria) camposActualizables.categoria = categoria;
+    if (stock) camposActualizables.stock = stock;
+
+    if (Object.keys(camposActualizables).length === 0) {
+        return res.status(400).json({ msg: 'You must enter some information' });
+    }
+
+    await Product.findOneAndUpdate({ nombre: nombre },
+        {
+            nombre: camposActualizables.nuevoNombre,
+            detalles: camposActualizables.detalles,
+            categoria: camposActualizables.categoria,
+            stock: camposActualizables.stock
+        });
+
+    res.status(200).json({
+        msg: "Product Updated Successfully"
+    });
+
+}
