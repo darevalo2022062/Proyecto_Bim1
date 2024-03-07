@@ -10,6 +10,7 @@ import categoryPath from '../src/categories/category.routes.js';
 import productPath from '../src/products/product.routes.js';
 import userPath from '../src/users/user.routes.js';
 import authPath from '../src/auth/auth.routes.js';
+import cartPath from '../src/obejctsTaken/objectTaken.routes.js';
 
 class Server {
     constructor() {
@@ -19,6 +20,7 @@ class Server {
         this.productPath = '/shopKinal/v1/product';
         this.userPath = '/shopKinal/v1/user';
         this.authPath = '/shopKinal/v1/auth';
+        this.cartPath = '/shopKinal/v1/cart';
         this.middlewares();
         this.routes();
         this.conectDB();
@@ -45,6 +47,7 @@ class Server {
         this.app.use(this.productPath, productPath);
         this.app.use(this.userPath, userPath);
         this.app.use(this.authPath, authPath);
+        this.app.use(this.cartPath, cartPath);
     }
 
     async conectDB() {

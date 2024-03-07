@@ -17,3 +17,20 @@ export const validarAdmin = async (req, res, next) => {
     }
     next();
 }
+
+export const validarClient = async (req, res, next) => {
+    const token = global.token;
+    if (!token) {
+        return res.status(400).json({
+            msg: '¡Log in first!🔐'
+        });
+    }
+    const idUser = jwt.verify(token, process.env.PASSWEBTOKEN);
+    const userResult = await User.findById(idUser.userId);
+    if (userResult.role != 'CLIENT') {
+        return res.status(400).json({
+            msg: 'This action is only available CLIENTS'
+        });
+    }
+    next();
+}

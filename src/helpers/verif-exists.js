@@ -10,7 +10,8 @@ export const verifCategory = async (nombre = '') => {
 
 export const verifProduct = async (nombre = '') => {
     const exists = await Product.findOne({ nombre: nombre, estado: true });
-    if (!exists) {
+    if (!exists | exists) {
+        console.log("EXISTENCIA: ", exists);
         throw new Error("This product does not exist");
     }
 }
