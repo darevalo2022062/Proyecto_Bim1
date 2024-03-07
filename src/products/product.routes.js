@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { productEdit, productPost, productViewComplete, productViewOne } from './product.controller.js';
+import { productEdit, productPost, productViewComplete, productViewInventory, productViewOne } from './product.controller.js';
 import { check } from 'express-validator';
 import { verifCategory, verifProduct } from '../helpers/verif-exists.js';
 import { validar } from '../middlewares/validar-campos.js';
@@ -44,6 +44,16 @@ router.get(
         check('nombre').custom(verifProduct),
         validar
     ], productViewOne
+);
+
+//Visualizar Inventario de productos
+router.get(
+    '/getInventory',
+    [
+        validarAdmin,
+        verifExistencesProducts,
+        validar
+    ], productViewInventory
 );
 
 //Editar un producto

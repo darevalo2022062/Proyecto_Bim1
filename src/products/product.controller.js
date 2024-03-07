@@ -82,3 +82,27 @@ export const productEdit = async (req, res) => {
     });
 
 }
+
+//Visualizar inventario de productos
+export const productViewInventory = async (req, res) => {
+    const allProducts = await Product.find({ estado: true });
+    const catalogue = allProducts.map(product => {
+        if (product.stock == 0) {
+            return {
+                nombre: product.nombre,
+                categoria: product.categoria,
+                stock: 'AGOTADO'
+            }
+        } else {
+            return {
+                nombre: product.nombre,
+                categoria: product.categoria,
+                stock: product.stock
+            }
+        }
+    });
+    res.status(200).json({
+        msg: "|------------PRODUCT CATALOG------------|",
+        catalogue
+    });
+}
