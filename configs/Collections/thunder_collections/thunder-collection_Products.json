@@ -1,25 +1,110 @@
 {
     "client": "Thunder Client",
     "collectionName": "Products",
-    "dateExported": "2024-03-04T17:37:50.739Z",
+    "dateExported": "2024-03-07T03:25:44.152Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "3e7b6146-adef-44d5-b004-2cbe52111792",
-            "colId": "8dc15fcf-acd5-400a-a637-54a6175a1da5",
+            "_id": "5aea41ab-ce66-450c-8598-911f5841d853",
+            "colId": "14ab6688-ecf3-40c5-a69d-8c4f229d28af",
             "containerId": "",
             "name": "create_product",
             "url": "http://localhost:3000/shopKinal/v1/product/new",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-03-04T14:13:01.343Z",
-            "modified": "2024-03-04T14:17:13.355Z",
+            "created": "2024-03-04T20:16:20.972Z",
+            "modified": "2024-03-07T02:09:13.573Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nombre\": \"Kellogs\",\n  \"detalles\": \"Cereal de hojuelas de maiz original\",\n  \"categoria\": \"Cereal\",\n  \"stock\": 225\n}",
+                "raw": "{\n  \"nombre\": \"Chokocrispi\",\n  \"detalles\": \"Cereal de arroz inflado con cubierta de chocolate\",\n  \"categoria\": \"Cereal\",\n  \"stock\": 225\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1f3855d4-eb14-4382-9669-9aa714581e25",
+            "colId": "14ab6688-ecf3-40c5-a69d-8c4f229d28af",
+            "containerId": "",
+            "name": "update_product",
+            "url": "http://localhost:3000/shopKinal/v1/product/update",
+            "method": "PUT",
+            "sortNum": 15000,
+            "created": "2024-03-07T02:49:19.814Z",
+            "modified": "2024-03-07T02:56:32.128Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Choco Krispis\",\n  \"nuevoNombre\": \"\",\n  \"detalles\": \"\",\n  \"categoria\": \"\",\n  \"stock\": \"\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d57e760b-d34b-4ca7-ab48-bdbb1f38fc77",
+            "colId": "14ab6688-ecf3-40c5-a69d-8c4f229d28af",
+            "containerId": "",
+            "name": "delete_product",
+            "url": "http://localhost:3000/shopKinal/v1/product/delete",
+            "method": "DELETE",
+            "sortNum": 17500,
+            "created": "2024-03-07T03:23:26.681Z",
+            "modified": "2024-03-07T03:24:29.681Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\": \"Choco Krispis\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "0f9ef425-9e12-4ee7-ab77-e9d31a317578",
+            "colId": "14ab6688-ecf3-40c5-a69d-8c4f229d28af",
+            "containerId": "",
+            "name": "view_Catalogue",
+            "url": "http://localhost:3000/shopKinal/v1/product/getCatalogue",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-05T23:07:14.331Z",
+            "modified": "2024-03-05T23:07:57.572Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "2b06afc2-f2f3-4b1a-86cc-87adb1684b7d",
+            "colId": "14ab6688-ecf3-40c5-a69d-8c4f229d28af",
+            "containerId": "",
+            "name": "view_Inventory",
+            "url": "http://localhost:3000/shopKinal/v1/product/getInventory",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2024-03-07T03:11:02.054Z",
+            "modified": "2024-03-07T03:12:19.477Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "60ec5007-8794-4ec0-9a1c-c55b6d0bc9d3",
+            "colId": "14ab6688-ecf3-40c5-a69d-8c4f229d28af",
+            "containerId": "",
+            "name": "view_Product",
+            "url": "http://localhost:3000/shopKinal/v1/product/getOne",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-03-07T02:17:20.900Z",
+            "modified": "2024-03-07T02:20:58.683Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre\":\"Kellogs\"\n}",
                 "form": []
             },
             "tests": []

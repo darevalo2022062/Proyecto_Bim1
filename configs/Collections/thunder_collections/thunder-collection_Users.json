@@ -1,20 +1,20 @@
 {
     "client": "Thunder Client",
     "collectionName": "Users",
-    "dateExported": "2024-03-04T17:37:54.187Z",
+    "dateExported": "2024-03-07T03:25:48.332Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "c4032b62-ffab-493b-ac57-32b50246825e",
-            "colId": "7b87abf7-b855-4df2-858b-aead6b703f70",
+            "_id": "9a5b98da-0e4f-4c29-b1c0-e100e297544b",
+            "colId": "c69e312a-e350-4bd6-9e7f-0f4a8b374aa6",
             "containerId": "",
             "name": "Register_client",
             "url": "http://localhost:3000/shopKinal/v1/user/registerClient",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-03-04T16:41:21.771Z",
-            "modified": "2024-03-04T16:48:50.594Z",
+            "created": "2024-03-04T20:16:21.017Z",
+            "modified": "2024-03-04T20:16:21.017Z",
             "headers": [],
             "params": [],
             "body": {
@@ -25,20 +25,77 @@
             "tests": []
         },
         {
-            "_id": "a1668141-9215-4391-a29c-d8cf74d45e43",
-            "colId": "7b87abf7-b855-4df2-858b-aead6b703f70",
+            "_id": "440d78e5-9082-42f9-97aa-b02c4d4b1205",
+            "colId": "c69e312a-e350-4bd6-9e7f-0f4a8b374aa6",
             "containerId": "",
             "name": "Register_Admin",
             "url": "http://localhost:3000/shopKinal/v1/user/registerAdmin",
             "method": "POST",
             "sortNum": 20000,
-            "created": "2024-03-04T16:56:50.101Z",
-            "modified": "2024-03-04T16:57:22.334Z",
+            "created": "2024-03-04T20:16:21.019Z",
+            "modified": "2024-03-04T20:16:21.019Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
                 "raw": "{\n  \"userName\":\"David Areva\",\n  \"email\":\"darevalo@gmail.com\",\n  \"password\":\"12345\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "cb20fc27-6646-4ed9-b89e-b556d06fe37b",
+            "colId": "c69e312a-e350-4bd6-9e7f-0f4a8b374aa6",
+            "containerId": "",
+            "name": "(Admin)_add_user",
+            "url": "http://localhost:3000/shopKinal/v1/user/addUser",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-03-04T22:19:00.768Z",
+            "modified": "2024-03-05T21:20:45.466Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userName\":\"David Areva\",\n  \"email\":\"darevalo@gmail.com\",\n  \"password\":\"12345\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "560d640d-e38f-45db-b5dd-999987f14dc7",
+            "colId": "c69e312a-e350-4bd6-9e7f-0f4a8b374aa6",
+            "containerId": "",
+            "name": "(Admin)_update_user",
+            "url": "http://localhost:3000/shopKinal/v1/user/updateUser",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-03-05T21:57:23.609Z",
+            "modified": "2024-03-05T22:38:04.601Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userName\":\"Algo\",\n  \"newUserName\":\"Diego\",\n  \"email\":\"dalvarez@gmail.com\",\n  \"role\":\"CLIENT\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "0ea1957d-ed7c-48ca-8bbb-27ae31b6978c",
+            "colId": "c69e312a-e350-4bd6-9e7f-0f4a8b374aa6",
+            "containerId": "",
+            "name": "(Admin)_delete_user",
+            "url": "http://localhost:3000/shopKinal/v1/user/deleteUser",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-03-05T22:45:36.338Z",
+            "modified": "2024-03-05T22:46:30.285Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userName\":\"Diego\"\n}",
                 "form": []
             },
             "tests": []
