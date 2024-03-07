@@ -1,5 +1,6 @@
 import Product from './product.js';
 
+//Crear producto
 export const productPost = async (req, res) => {
     const { nombre, detalles, categoria, stock } = req.body;
     var product = null;
@@ -20,6 +21,7 @@ export const productPost = async (req, res) => {
 
 }
 
+//Visualizar catalogo (Todos los productos)
 export const productViewComplete = async (req, res) => {
     const allProducts = await Product.find({ estado: true });
     const catalogue = allProducts.map(product => {
@@ -33,5 +35,23 @@ export const productViewComplete = async (req, res) => {
     res.status(200).json({
         msg: "|------------PRODUCT CATALOG------------|",
         catalogue
+    });
+}
+
+//Visiualizar productos individuales
+export const productViewOne = async (req, res) => {
+    const { nombre } = req.body;
+    const productoFind = Product.findOne({ nombre: nombre });
+    const productClean = productoFind.map(product => {
+        return {
+            nombre: product.nombre,
+            detalles: product.detalles,
+            categoria: product.categoria,
+            stock: product.stock
+        }
+    });
+    res.status(200).json({
+        msg: "|------------PRODUCT CATALOG------------|",
+        productClean
     });
 }

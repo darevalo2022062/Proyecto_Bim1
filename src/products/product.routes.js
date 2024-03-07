@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { productPost, productViewComplete } from './product.controller.js';
+import { productPost, productViewComplete, productViewOne } from './product.controller.js';
 import { check } from 'express-validator';
-import { verifCategory } from '../helpers/verif-exists.js';
+import { verifCategory, verifProduct } from '../helpers/verif-exists.js';
 import { validar } from '../middlewares/validar-campos.js';
 import { existenciaProduct } from '../helpers/validar-existencias.js';
 import { validarAdmin } from '../middlewares/role_validation.js';
@@ -33,6 +33,17 @@ router.get(
         verifExistencesProducts,
         validar
     ], productViewComplete
+);
+
+//Visualizar un solo producto
+router.get(
+    '/getOne',
+    [
+        validarAdmin,
+        check('nombre').not().isEmpty().withMessage('The field "nombre" is empty ❌'),
+        check('nombre').custom(verifProduct),
+        validar
+    ], productViewOne
 );
 
 
