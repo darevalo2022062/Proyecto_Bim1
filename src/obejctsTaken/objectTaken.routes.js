@@ -2,7 +2,7 @@ import { Router } from "express";
 import { check } from "express-validator";
 import { validar } from "../middlewares/validar-campos.js";
 import { verifStockToCart } from "../middlewares/products.middlewares.js";
-import { AddToShoppingCar } from "./obectTaken.controller.js";
+import { AddToShoppingCar, viewShoppingCart } from "./obectTaken.controller.js";
 import { verifProduct } from "../helpers/verif-exists.js";
 import { validarClient } from "../middlewares/role_validation.js";
 
@@ -18,6 +18,13 @@ router.post(
         validar,
         verifStockToCart
     ], AddToShoppingCar
+);
+
+router.get(
+    '/view',
+    [
+        validarClient
+    ], viewShoppingCart
 );
 
 

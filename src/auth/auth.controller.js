@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import User from '../users/user.js';
+import memoryCache from 'memory-cache';
 import { generateToken } from '../helpers/generate-jwt.js';
 
 //Validación de datos
@@ -17,6 +18,7 @@ export const login = async (req, res) => {
         let token = await generateToken(user._id);
         global.token = null;
         global.token = token;
+        memoryCache.put('productsTaken', null);
         res.status(200).json({
             msg: 'session logged in successfully🔓✅',
         });
