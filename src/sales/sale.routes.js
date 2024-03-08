@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { confirmPurchase } from "./sale.controller.js";
+import { confirmPurchase, shoppingHistory } from "./sale.controller.js";
 import { validarClient } from "../middlewares/role_validation.js";
 import { check } from "express-validator";
 import { validar } from "../middlewares/validar-campos.js";
-import { verifExistencesProductsInCart } from "../middlewares/buy.middlewares.js";
+import { verifExistenceShopping, verifExistencesProductsInCart } from "../middlewares/buy.middlewares.js";
 
 const router = Router();
 
@@ -19,6 +19,15 @@ router.post(
         check('cvv').not().isEmpty().withMessage('The field "cvv" is empty ❌'),
         validar
     ], confirmPurchase
+);
+
+router.get(
+    '/shoppingHistory',
+    [
+        validarClient,
+        verifExistenceShopping,
+        validar
+    ], shoppingHistory
 );
 
 export default router;

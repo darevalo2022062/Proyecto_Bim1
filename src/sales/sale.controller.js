@@ -96,3 +96,36 @@ export const confirmPurchase = async (req, res) => {
     });
 
 }
+
+//Mostrar Hisotrial de Compras
+
+export const shoppingHistory = async (req, res) => {
+    const idUser = jwt.verify(token, process.env.PASSWEBTOKEN).userId;
+    const compras = await Sale.find({ cliente: idUser });
+
+    var productosComprados = [];
+    compras.forEach(producto => {
+        const { nombre, cantidad, precio, total } = producto;
+        productosComprados.push({ nombre, cantidad, precio, total });
+    });
+
+    const comprasMuestra = compras.map(compra => {
+        const productosComprados = compra.productos.map(producto => ({
+            nombre: producto.nombre,
+            cantidad: producto.cantidad,
+            precio_unitario: producto.precio,
+            total: producto.total
+        }));
+
+        return {
+            Fecha_de_compra: compra.fecha,
+            Productos_comprados: productosComprados,
+            Factura_No: compra.factura
+        };
+    });
+
+    res.status(200).json({
+        msg: 'These are your purchases',
+        comprasMuestra
+    });
+}
