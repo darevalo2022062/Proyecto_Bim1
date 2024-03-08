@@ -1,3 +1,4 @@
+import Sale from '../sales/sale.js';
 import Product from './product.js';
 
 //Crear producto
@@ -118,5 +119,51 @@ export const productDelete = async (req, res) => {
     await Product.findOneAndUpdate({ nombre: nombre }, { $set: { estado: false } });
     res.status(200).json({
         msg: "Deleted Successfully!"
+    });
+}
+
+//PRODUCTOS MAS VENDIDOS
+export const productBestSellers = async (req, res) => {
+    const products = await Product.find({ estado: true });
+    var productsOrder = [];
+    for (var product of products) {
+        productsOrder.push(product);
+    }
+    productsOrder.sort((a, b) => b.sales - a.sales);
+    const productsBestSold = productsOrder.map(product => {
+        return {
+            id: product._id,
+            nombre: product.nombre,
+            detalles: product.detalles,
+            categoria: product.categoria,
+            stock: product.stock,
+            ventas: product.sales,
+
+        }
+    });
+    res.status(200).json({
+        msg: "|------------PRODUCTS BEST SELLERS------------|",
+        productsBestSold
+    });
+}
+
+export const productBestSell = async (req, res) => {
+    const products = await Product.find({ estado: true });
+    var productsOrder = [];
+    for (var product of products) {
+        productsOrder.push(product);
+    }
+    productsOrder.sort((a, b) => b.sales - a.sales);
+    const productsBestSold = productsOrder.map(product => {
+        return {
+            nombre: product.nombre,
+            categoria: product.categoria,
+            ventas: product.sales,
+
+        }
+    });
+    res.status(200).json({
+        msg: "|------------PRODUCTS BEST SELLERS------------|",
+        productsBestSold
     });
 }

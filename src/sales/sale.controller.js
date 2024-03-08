@@ -21,14 +21,13 @@ export const confirmPurchase = async (req, res) => {
     }
     //OBTENGO DATOS
     const productsSelected = memoryCache.get('productsTaken');
-    console.log(productsSelected);
     //1...Quitar de Stock
     for (var producto of productsSelected) {
         let id = producto.idProduct;
-        console.log("ESTE ES EL ID DE PRODUCTO: " + id);
         const product = await Product.findById(id);
         let nuevoStock = product.stock - producto.cantidad;
-        await Product.findByIdAndUpdate(id, { $set: { stock: nuevoStock } });
+        let ventas = product.sales + producto.cantidad;
+        await Product.findByIdAndUpdate(id, { $set: { stock: nuevoStock, sales: ventas } });
     }
     //2...Crear Factura
     var comprador, fechaEmision, total;
@@ -87,7 +86,6 @@ export const confirmPurchase = async (req, res) => {
         })),
         TOTAL: total
     };
-
 
     memoryCache.put('productsTaken', null);
     res.status(200).json({

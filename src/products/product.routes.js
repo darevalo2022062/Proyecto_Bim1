@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { productDelete, productEdit, productPost, productViewComplete, productViewInventory, productViewOne } from './product.controller.js';
+import { productBestSell, productBestSellers, productDelete, productEdit, productPost, productViewComplete, productViewInventory, productViewOne } from './product.controller.js';
 import { check } from 'express-validator';
 import { verifCategory, verifProduct } from '../helpers/verif-exists.js';
 import { validar } from '../middlewares/validar-campos.js';
 import { existenciaProduct } from '../helpers/validar-existencias.js';
-import { validarAdmin } from '../middlewares/role_validation.js';
+import { validarAdmin, validarClient } from '../middlewares/role_validation.js';
 import { existenceCategoryUpdate, existenceProductUpdate, verifExistencesProducts } from '../middlewares/products.middlewares.js';
 
 const router = Router();
@@ -79,6 +79,23 @@ router.delete(
         check('nombre').custom(verifProduct),
         validar
     ], productDelete
+);
+
+//Ver producto mas vendidos
+router.get(
+    '/productsBestSellers',
+    [
+        validarAdmin,
+        validar
+    ], productBestSellers
+);
+
+router.get(
+    '/productsBestSell',
+    [
+        validarClient,
+        validar
+    ], productBestSell
 );
 
 export default router;

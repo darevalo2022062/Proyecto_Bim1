@@ -17,6 +17,10 @@ const ProductSchema = Schema({
         type: Number,
         required: [true, 'The "stock" data is mandatory']
     },
+    sales: {
+        type: Number,
+        default: 0
+    },
     precio: {
         type: Number,
         required: [true, 'The "precio" data is mandatory']
