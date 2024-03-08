@@ -19,6 +19,7 @@ router.post(
         check('detalles').not().isEmpty().withMessage('The field "detalles" is empty ❌'),
         check('categoria').not().isEmpty().withMessage('The field "categoria" is empty ❌'),
         check('categoria').custom(verifCategory),
+        check('precio').not().isEmpty().withMessage('The field "precio" is empty ❌'),
         check('stock').not().isEmpty().withMessage('The field "stock" is empty ❌'),
         validar
     ], productPost
