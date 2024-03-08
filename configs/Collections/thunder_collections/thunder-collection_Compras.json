@@ -1,8 +1,24 @@
 {
     "client": "Thunder Client",
     "collectionName": "Compras",
-    "dateExported": "2024-03-08T04:23:00.857Z",
+    "dateExported": "2024-03-08T17:40:39.136Z",
     "version": "1.1",
     "folders": [],
-    "requests": []
+    "requests": [
+        {
+            "_id": "70cbcb40-7737-4b76-83af-8baddc3a28d5",
+            "colId": "67d6b894-ba6a-4586-acca-a96841f007e0",
+            "containerId": "",
+            "name": "ViewShoppingHistory",
+            "url": "http://localhost:3000/shopKinal/v1/purchase/shoppingHistory",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-03-08T13:34:25.453Z",
+            "modified": "2024-03-08T13:34:59.556Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        }
+    ]
 }
