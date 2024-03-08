@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { addUser, deleteUser, registerAdmin, registerCliente, updateUser } from "./user.controller.js";
+import { addUser, deleteUser, editMyProfile, registerAdmin, registerCliente, updateUser } from "./user.controller.js";
 import { check } from "express-validator";
 import { emailExistence, emailExistenceUpdate, isClient, userNameExistence, userNameVerifExistence } from "../middlewares/userAuth.middlewares.js";
 import { validar } from "../middlewares/validar-campos.js";
-import { validarAdmin } from "../middlewares/role_validation.js";
+import { validarAdmin, validarClient } from "../middlewares/role_validation.js";
 
 const router = Router();
 
@@ -72,6 +72,17 @@ router.delete(
     ], deleteUser
 );
 
+router.put(
+    '/editMyUser',
+    [
+        validarClient,
+        check("newUserName").not().isEmpty().withMessage('The field "userName" is empty ❌'),
+        check('newUserName').custom(userNameExistence),
+        check('email').isEmail(),
+        check('email').custom(emailExistence),
+        validar
+    ], editMyProfile
+);
 
 
 export default router;

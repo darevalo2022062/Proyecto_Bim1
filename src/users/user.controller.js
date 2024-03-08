@@ -1,5 +1,6 @@
 import User from "./user.js";
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 export const registerCliente = async (req, res) => {
     var { userName, email, password } = req.body;
@@ -61,6 +62,15 @@ export const deleteUser = async (req, res) => {
     await User.findOneAndUpdate({ userName: userName }, { $set: { estado: false } });
     res.status(200).json({
         msg: "User delete successfully✅",
+    });
+}
+
+export const editMyProfile = async (req, res) => {
+    const { newUserName, email } = req.body;
+    const idUser = jwt.verify(token, process.env.PASSWEBTOKEN).userId;
+    await User.findByIdAndUpdate(idUser, { $set: { userName: newUserName, email: email } });
+    res.status(200).json({
+        msg: "User udapted successfully✅",
     });
 }
 
