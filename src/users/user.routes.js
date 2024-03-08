@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addUser, deleteUser, editMyProfile, registerAdmin, registerCliente, updateUser } from "./user.controller.js";
+import { addUser, deleteMyProfile, deleteUser, editMyProfile, registerAdmin, registerCliente, updateUser } from "./user.controller.js";
 import { check } from "express-validator";
 import { emailExistence, emailExistenceUpdate, isClient, userNameExistence, userNameVerifExistence } from "../middlewares/userAuth.middlewares.js";
 import { validar } from "../middlewares/validar-campos.js";
@@ -82,6 +82,15 @@ router.put(
         check('email').custom(emailExistence),
         validar
     ], editMyProfile
+);
+
+router.delete(
+    '/deleteMyUser',
+    [
+        validarClient,
+        check('password').not().isEmpty().withMessage('The field "password" is empty ❌'),
+        validar
+    ], deleteMyProfile
 );
 
 

@@ -73,4 +73,21 @@ export const editMyProfile = async (req, res) => {
         msg: "User udapted successfully✅",
     });
 }
+export const deleteMyProfile = async (req, res) => {
+    var { password } = req.body;
+    const idUser = jwt.verify(token, process.env.PASSWEBTOKEN).userId;
+    const user = await User.findById(idUser);
+    let result = bcrypt.compareSync(password, user.password);
+    if (result) {
+        await User.findByIdAndUpdate(idUser, { estado: false });
+        res.status(200).json({
+            msg: "User deleted successfully✅ - SESSION CLOSED",
+        });
+    } else {
+        res.status(400).json({
+            msg: "The password is incorrect❌",
+        });
+    }
+    global.token = null;
+}
 
