@@ -5,6 +5,7 @@ import { verifStockToCart } from "../middlewares/products.middlewares.js";
 import { AddToShoppingCar, viewShoppingCart } from "./obectTaken.controller.js";
 import { verifProduct } from "../helpers/verif-exists.js";
 import { validarClient } from "../middlewares/role_validation.js";
+import { verifExistencesProductsInCart } from "../middlewares/buy.middlewares.js";
 
 const router = Router();
 
@@ -23,7 +24,9 @@ router.post(
 router.get(
     '/view',
     [
-        validarClient
+        validarClient,
+        verifExistencesProductsInCart,
+        validar
     ], viewShoppingCart
 );
 

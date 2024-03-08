@@ -35,11 +35,6 @@ export const AddToShoppingCar = async (req, res) => {
 //VISUALIZAR CARRITO
 export const viewShoppingCart = async (req, res) => {
     const productsInCart = memoryCache.get('productsTaken');
-    if (!productsInCart) {
-        return res.status(200).json({
-            msg: 'Your cart is still empty, add products!'
-        });
-    }
 
     return res.status(200).json({
         msg: 'This is your shopping cart',
