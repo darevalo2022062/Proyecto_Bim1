@@ -35,10 +35,20 @@ export const AddToShoppingCar = async (req, res) => {
 //VISUALIZAR CARRITO
 export const viewShoppingCart = async (req, res) => {
     const productsInCart = memoryCache.get('productsTaken');
+    const productosMostrar = [];
+
+    for (const product of productsInCart) {
+        const productData = await Product.findById(product.idProduct);
+        productosMostrar.push({
+            nombre: productData.nombre,
+            precio_Unitario: productData.precio,
+            cantidad: product.cantidad
+        });
+    }
 
     return res.status(200).json({
         msg: 'This is your shopping cart',
-        productsInCart
+        productosMostrar
     });
 
 

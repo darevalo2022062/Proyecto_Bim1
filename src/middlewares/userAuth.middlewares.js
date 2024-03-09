@@ -18,6 +18,7 @@ export const emailExistenceUpdate = async (email) => {
     const existence = await User.findOne({ email: email });
     const idUpdate = global.userUpdateID.toString();
     const idExistence = existence._id.toString();
+    console.log("idExistence: ", idExistence, "idUpdate: ", idUpdate);
     if (idExistence != idUpdate) {
         throw new Error("This email is already in use, please choose another one :)");
     }
@@ -42,8 +43,9 @@ export const userNameVerifExistence = async (userName) => {
     const existence = await User.findOne({ userName: userName, estado: true });
     if (!existence) {
         throw new Error("This user does not exist, sorry :c");
+    } else {
+        global.userUpdateID = existence._id.toString();
     }
-    global.userUpdateID = existence._id;
 }
 
 export const isClient = async (userName) => {

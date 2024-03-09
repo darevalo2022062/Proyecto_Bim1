@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "65ebbaf309e50b38d8c72136"
+  },
+  "userName": "DiegoAlvarez",
+  "email": "diego@kinal.edu.gt",
+  "password": "$2b$10$ME9nY2Qq.qjlz7clmqI0..bBlqTo6UsD5SHCtRn8avyF74afT5xoq",
+  "role": "CLIENT",
+  "estado": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ebbafb09e50b38d8c7213a"
+  },
+  "userName": "Sebastian",
+  "email": "Sebas@gmail.com",
+  "password": "$2b$10$QUqbyyyVi.tnGV82io0tTOuNlE7hZw98bzTRmRjxRkCmDoMLls2Vq",
+  "role": "CLIENT",
+  "estado": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ebbb0109e50b38d8c7213e"
+  },
+  "userName": "David",
+  "email": "darevalo@gmail.com",
+  "password": "$2b$10$Bh5dP5Up5vWoUun/6j033Ojg/MDKtCqXRMisXra8bfW4UMlJsqa/G",
+  "role": "ADMIN",
+  "estado": true,
+  "__v": 0
+}]

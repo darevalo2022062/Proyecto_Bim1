@@ -1,0 +1,63 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Bills",
+    "dateExported": "2024-03-09T01:48:29.918Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "db1f1c95-34a0-4eb4-9d07-6e4d95af474c",
+            "colId": "9987ab0b-fda9-4c9d-9842-61ce066e00ed",
+            "containerId": "",
+            "name": "editBill",
+            "url": "http://localhost:3000/shopKinal/v1/bill/edit",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2024-03-09T00:58:32.113Z",
+            "modified": "2024-03-09T01:09:01.965Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\":\"65ea8f54e7cfe99dd23d5850\",\n  \"comprador\":\"65e62eb6fb7370ee085085ab\",\n  \"fechaEmision\":\"7/3/2024, 00:00:00\",\n  \"total\":160\n}",
+                "form": []
+            },
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "ca24ab63-91c0-4db3-87db-2c83f274161f",
+            "colId": "9987ab0b-fda9-4c9d-9842-61ce066e00ed",
+            "containerId": "",
+            "name": "viewBills",
+            "url": "http://localhost:3000/shopKinal/v1/bill/view",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-09T01:12:58.605Z",
+            "modified": "2024-03-09T01:14:30.817Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "tests": []
+        },
+        {
+            "_id": "45ba5084-09c5-473c-aa61-0960bf7c4963",
+            "colId": "9987ab0b-fda9-4c9d-9842-61ce066e00ed",
+            "containerId": "",
+            "name": "viewBillsForCostumer",
+            "url": "http://localhost:3000/shopKinal/v1/bill/viewBillsCustumer",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-03-09T01:15:05.165Z",
+            "modified": "2024-03-09T01:21:21.494Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombreComprador\": \"Diego\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

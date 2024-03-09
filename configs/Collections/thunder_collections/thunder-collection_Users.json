@@ -1,58 +1,60 @@
 {
     "client": "Thunder Client",
     "collectionName": "Users",
-    "dateExported": "2024-03-08T17:40:43.808Z",
+    "dateExported": "2024-03-09T01:47:48.163Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "5d268490-47d7-4680-9f60-f5e9e69e5dcd",
-            "colId": "73e925bc-cd0e-4d02-bcc4-6a7626f9fd0f",
+            "_id": "f82af9e6-7edd-405c-8e03-899148c56b42",
+            "colId": "479d081b-3234-4463-bbc5-8bd7ee3e7a49",
             "containerId": "",
             "name": "Register_client",
             "url": "http://localhost:3000/shopKinal/v1/user/registerClient",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-03-08T13:19:08.932Z",
-            "modified": "2024-03-08T13:19:08.932Z",
+            "created": "2024-03-08T22:20:19.716Z",
+            "modified": "2024-03-09T01:27:23.426Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"userName\":\"Dieguito\",\n  \"email\":\"diegoAlvare@gmail.com\",\n  \"password\":\"12345\"\n}",
+                "raw": "{\n  \"userName\":\"Sebastian\",\n  \"email\":\"Sebas@gmail.com\",\n  \"password\":\"12345\"\n}",
                 "form": []
             },
+            "reqType": "post",
             "tests": []
         },
         {
-            "_id": "d5b11538-11c2-4074-9f0a-62588c45660f",
-            "colId": "73e925bc-cd0e-4d02-bcc4-6a7626f9fd0f",
+            "_id": "1db16f1c-6dcc-46f9-a10a-6596e194a01c",
+            "colId": "479d081b-3234-4463-bbc5-8bd7ee3e7a49",
             "containerId": "",
             "name": "Register_Admin",
             "url": "http://localhost:3000/shopKinal/v1/user/registerAdmin",
             "method": "POST",
             "sortNum": 20000,
-            "created": "2024-03-08T13:19:08.933Z",
-            "modified": "2024-03-08T13:19:08.933Z",
+            "created": "2024-03-08T22:20:19.717Z",
+            "modified": "2024-03-09T01:27:29.779Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"userName\":\"David Areva\",\n  \"email\":\"darevalo@gmail.com\",\n  \"password\":\"12345\"\n}",
+                "raw": "{\n  \"userName\":\"David\",\n  \"email\":\"darevalo@gmail.com\",\n  \"password\":\"12345\"\n}",
                 "form": []
             },
+            "reqType": "post",
             "tests": []
         },
         {
-            "_id": "e01a1e8f-fce6-4a9f-9e75-d7046411741a",
-            "colId": "73e925bc-cd0e-4d02-bcc4-6a7626f9fd0f",
+            "_id": "3939865b-3469-4cde-b4f6-8363aeded9aa",
+            "colId": "479d081b-3234-4463-bbc5-8bd7ee3e7a49",
             "containerId": "",
             "name": "(Admin)_add_user",
             "url": "http://localhost:3000/shopKinal/v1/user/addUser",
             "method": "POST",
             "sortNum": 30000,
-            "created": "2024-03-08T13:19:08.934Z",
-            "modified": "2024-03-08T13:19:08.934Z",
+            "created": "2024-03-08T22:20:19.718Z",
+            "modified": "2024-03-08T22:20:19.718Z",
             "headers": [],
             "params": [],
             "body": {
@@ -63,34 +65,35 @@
             "tests": []
         },
         {
-            "_id": "0de8ca27-1313-47e4-9d36-cce876f9ccb2",
-            "colId": "73e925bc-cd0e-4d02-bcc4-6a7626f9fd0f",
+            "_id": "ce4f2cb5-d6f7-47db-ad5a-5dd181471b4b",
+            "colId": "479d081b-3234-4463-bbc5-8bd7ee3e7a49",
             "containerId": "",
             "name": "(Admin)_update_user",
             "url": "http://localhost:3000/shopKinal/v1/user/updateUser",
             "method": "PUT",
             "sortNum": 40000,
-            "created": "2024-03-08T13:19:08.935Z",
-            "modified": "2024-03-08T13:19:08.935Z",
+            "created": "2024-03-08T22:20:19.719Z",
+            "modified": "2024-03-09T01:27:47.336Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"userName\":\"Algo\",\n  \"newUserName\":\"Diego\",\n  \"email\":\"dalvarez@gmail.com\",\n  \"role\":\"CLIENT\"\n}",
+                "raw": "{\n  \"userName\":\"Diego\",\n  \"newUserName\":\"Alvarez\",\n  \"email\":\"dalvarez@gmail.com\",\n  \"role\":\"CLIENT\"\n}",
                 "form": []
             },
+            "reqType": "put",
             "tests": []
         },
         {
-            "_id": "11a42f62-95ca-4295-b1c7-71d833ce9481",
-            "colId": "73e925bc-cd0e-4d02-bcc4-6a7626f9fd0f",
+            "_id": "cd6847b4-6ec0-4982-bc93-f8ba50578c8e",
+            "colId": "479d081b-3234-4463-bbc5-8bd7ee3e7a49",
             "containerId": "",
             "name": "(Admin)_delete_user",
             "url": "http://localhost:3000/shopKinal/v1/user/deleteUser",
             "method": "DELETE",
             "sortNum": 50000,
-            "created": "2024-03-08T13:19:08.936Z",
-            "modified": "2024-03-08T13:19:08.936Z",
+            "created": "2024-03-08T22:20:19.720Z",
+            "modified": "2024-03-08T22:20:19.720Z",
             "headers": [],
             "params": [],
             "body": {
@@ -101,34 +104,35 @@
             "tests": []
         },
         {
-            "_id": "3e15636f-b26c-4732-866f-1d5a8b84b270",
-            "colId": "73e925bc-cd0e-4d02-bcc4-6a7626f9fd0f",
+            "_id": "4405dd5d-2141-4996-af5f-4b9eeca02481",
+            "colId": "479d081b-3234-4463-bbc5-8bd7ee3e7a49",
             "containerId": "",
             "name": "(Client)_edit_my_profile",
             "url": "http://localhost:3000/shopKinal/v1/user/editMyUser",
             "method": "PUT",
             "sortNum": 60000,
-            "created": "2024-03-08T13:59:18.694Z",
-            "modified": "2024-03-08T14:03:46.474Z",
+            "created": "2024-03-08T22:20:19.721Z",
+            "modified": "2024-03-09T01:37:09.661Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"newUserName\":\"DiegoXD\",\n  \"email\":\"diego@kinal.edu.gt\"\n}",
+                "raw": "{\n  \"newUserName\":\"DiegoAlvarez\",\n  \"email\":\"diego@kinal.edu.gt\"\n}",
                 "form": []
             },
+            "reqType": "put",
             "tests": []
         },
         {
-            "_id": "b89e0277-b266-43d5-8e58-57b06afd9a8c",
-            "colId": "73e925bc-cd0e-4d02-bcc4-6a7626f9fd0f",
+            "_id": "d5fb85e2-201d-4fe0-b9f5-a375321aced1",
+            "colId": "479d081b-3234-4463-bbc5-8bd7ee3e7a49",
             "containerId": "",
             "name": "(Client)_delete_my_profile",
             "url": "http://localhost:3000/shopKinal/v1/user/deleteMyUser",
             "method": "DELETE",
             "sortNum": 80000,
-            "created": "2024-03-08T15:22:24.355Z",
-            "modified": "2024-03-08T15:48:16.983Z",
+            "created": "2024-03-08T22:20:19.722Z",
+            "modified": "2024-03-08T22:20:19.722Z",
             "headers": [],
             "params": [],
             "body": {
@@ -136,7 +140,6 @@
                 "raw": "{\n  \"password\":\"12345\"\n}",
                 "form": []
             },
-            "reqType": "get",
             "tests": []
         }
     ]

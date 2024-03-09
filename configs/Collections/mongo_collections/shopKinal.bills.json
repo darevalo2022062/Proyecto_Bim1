@@ -1,0 +1,82 @@
+[{
+  "_id": {
+    "$oid": "65ebbf931de208b84303be5c"
+  },
+  "comprador": "65ebbafb09e50b38d8c7213a",
+  "fechaEmision": "8/3/2024, 19:46:59",
+  "productos": [
+    {
+      "id": "65ebbe351de208b84303be00",
+      "nombre": "Pepsi",
+      "cantidad": 3,
+      "precio": 9.5,
+      "total": 28.5
+    },
+    {
+      "id": "65ebbe6f1de208b84303be0c",
+      "nombre": "Mouse Gaming",
+      "cantidad": 2,
+      "precio": 350.5,
+      "total": 701
+    }
+  ],
+  "total": 729.5,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ebc02e4eb615d37ba22782"
+  },
+  "comprador": "65ebbafb09e50b38d8c7213a",
+  "fechaEmision": "8/3/2024, 19:49:34",
+  "productos": [
+    {
+      "id": "65ebbe6f1de208b84303be0c",
+      "nombre": "Mouse Gaming",
+      "cantidad": 2,
+      "precio": 350.5,
+      "total": 701
+    },
+    {
+      "id": "65ebbe351de208b84303be00",
+      "nombre": "Pepsi",
+      "cantidad": 5,
+      "precio": 9.5,
+      "total": 47.5
+    },
+    {
+      "id": "65ebbe1b1de208b84303bdfa",
+      "nombre": "Coca-cola",
+      "cantidad": 1,
+      "precio": 15.65,
+      "total": 15.65
+    }
+  ],
+  "total": 764.15,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ebc04c4eb615d37ba227a1"
+  },
+  "comprador": "65ebbaf309e50b38d8c72136",
+  "fechaEmision": "8/3/2024, 19:50:04",
+  "productos": [
+    {
+      "id": "65ebbe1b1de208b84303bdfa",
+      "nombre": "Coca-cola",
+      "cantidad": 2,
+      "precio": 15.65,
+      "total": 31.3
+    },
+    {
+      "id": "65ebbe7f1de208b84303be12",
+      "nombre": "Litro LALA",
+      "cantidad": 4,
+      "precio": 350.5,
+      "total": 1402
+    }
+  ],
+  "total": 1433.3,
+  "__v": 0
+}]

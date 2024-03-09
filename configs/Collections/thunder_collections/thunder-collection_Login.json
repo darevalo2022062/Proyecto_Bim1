@@ -1,25 +1,25 @@
 {
     "client": "Thunder Client",
     "collectionName": "Login",
-    "dateExported": "2024-03-08T17:40:22.856Z",
+    "dateExported": "2024-03-09T01:47:52.296Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "a1effd5e-950f-4b83-8d97-75f3698c7783",
-            "colId": "7fbc7024-0604-4723-b63f-3514c8cc98f4",
+            "_id": "c77b73f0-caa0-4913-ae3a-42f91dfe21af",
+            "colId": "3a33d10b-8703-4148-9d83-9a75e3ea4219",
             "containerId": "",
             "name": "login",
             "url": "http://localhost:3000/shopKinal/v1/auth/login",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-03-08T13:19:08.882Z",
-            "modified": "2024-03-08T17:23:27.617Z",
+            "created": "2024-03-08T22:20:19.638Z",
+            "modified": "2024-03-09T01:45:18.132Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"identifier\": \"David Areva\",\n  \"password\": \"12345\"\n}",
+                "raw": "{\n  \"identifier\": \"Sebastian\",\n  \"password\": \"12345\"\n}",
                 "form": []
             },
             "reqType": "post",

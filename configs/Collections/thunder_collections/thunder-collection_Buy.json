@@ -1,20 +1,20 @@
 {
     "client": "Thunder Client",
     "collectionName": "Buy",
-    "dateExported": "2024-03-08T17:40:12.136Z",
+    "dateExported": "2024-03-09T01:48:05.157Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "ad313877-0fd8-42c6-94b8-ab16315c8f37",
-            "colId": "100d33fe-d799-4b6d-8801-cf3b2311010f",
+            "_id": "b20a9c0b-253e-4cf2-acdb-1690732cb9d2",
+            "colId": "6e3640bd-a97d-49f8-9f6b-23f7e60a1f2f",
             "containerId": "",
             "name": "buyNow",
             "url": "http://localhost:3000/shopKinal/v1/purchase/buy",
             "method": "POST",
             "sortNum": 10000,
-            "created": "2024-03-08T13:19:08.839Z",
-            "modified": "2024-03-08T13:19:08.839Z",
+            "created": "2024-03-08T22:20:19.569Z",
+            "modified": "2024-03-08T22:20:19.569Z",
             "headers": [],
             "params": [],
             "body": {

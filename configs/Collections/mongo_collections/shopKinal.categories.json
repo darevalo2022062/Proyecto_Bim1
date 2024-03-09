@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "65ebbd9e1de208b84303bddc"
+  },
+  "nombre": "Lacteos",
+  "detalles": "Cualquier producto Lacteo perecedero",
+  "estado": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ebbdc21de208b84303bde3"
+  },
+  "nombre": "Bebidas",
+  "detalles": "Toda bebida NO alcoholica incluida.",
+  "estado": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ebbdd81de208b84303bde8"
+  },
+  "nombre": "Computación",
+  "detalles": "Productos enfocados a la computación y los mismos equipos personales o de oficina.",
+  "estado": true,
+  "__v": 0
+}]

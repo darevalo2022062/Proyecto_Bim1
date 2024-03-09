@@ -1,0 +1,65 @@
+[{
+  "_id": {
+    "$oid": "65ebbe1b1de208b84303bdfa"
+  },
+  "nombre": "Coca-cola",
+  "detalles": "Coca-cola Original de 1L",
+  "categoria": "Bebidas",
+  "stock": 20,
+  "sales": 5,
+  "precio": 15.65,
+  "estado": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ebbe351de208b84303be00"
+  },
+  "nombre": "Pepsi",
+  "detalles": "Bebida original de 500ml",
+  "categoria": "Bebidas",
+  "stock": 194,
+  "sales": 11,
+  "precio": 9.5,
+  "estado": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ebbe581de208b84303be06"
+  },
+  "nombre": "Hp-pavillon 14",
+  "detalles": "Computadora de alta Gama",
+  "categoria": "Computación",
+  "stock": 10,
+  "sales": 0,
+  "precio": 8559.99,
+  "estado": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ebbe6f1de208b84303be0c"
+  },
+  "nombre": "Mouse Gaming",
+  "detalles": "Mouse Marca LOGITECH",
+  "categoria": "Computación",
+  "stock": 7,
+  "sales": 5,
+  "precio": 350.5,
+  "estado": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ebbe7f1de208b84303be12"
+  },
+  "nombre": "Litro LALA",
+  "detalles": "Presentación de 1L LALA",
+  "categoria": "Lacteos",
+  "stock": 8,
+  "sales": 4,
+  "precio": 350.5,
+  "estado": true,
+  "__v": 0
+}]
