@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { productBestSell, productBestSellers, productDelete, productEdit, productPost, productViewComplete, productViewInventory, productViewOne } from './product.controller.js';
+import { productBestSell, productBestSellers, productByCategory, productDelete, productEdit, productPost, productViewComplete, productViewFliterCategory, productViewInventory, productViewOne } from './product.controller.js';
 import { check } from 'express-validator';
 import { verifCategory, verifProduct } from '../helpers/verif-exists.js';
 import { validar } from '../middlewares/validar-campos.js';
@@ -34,6 +34,17 @@ router.get(
         verifExistencesProducts,
         validar
     ], productViewComplete
+);
+
+//visualizar todo el catalogo CLiente
+router.get(
+    '/getCatalogueClient',
+    [
+        validarClient,
+        check('filtrar').not().isEmpty().withMessage('The field "filtrar" is empty ❌'),
+        verifExistencesProducts,
+        validar
+    ], productViewFliterCategory
 );
 
 //Visualizar un solo producto
@@ -107,6 +118,17 @@ router.get(
         validarClient,
         validar
     ], productBestSell
+);
+
+//Ver por categoria
+router.get(
+    '/productsByCategory',
+    [
+        validarClient,
+        check('categoria').not().isEmpty().withMessage('The field "categoria" is empty ❌'),
+        check('categoria').custom(verifCategory),
+        validar
+    ], productByCategory
 );
 
 export default router;

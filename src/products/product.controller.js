@@ -40,6 +40,54 @@ export const productViewComplete = async (req, res) => {
     });
 }
 
+//VIsualizar productos filtrados por categoria
+export const productViewFliterCategory = async (req, res) => {
+    const { filtrar } = req.body;
+
+    if (filtrar === true) {
+        const allProducts = await Product.find({ estado: true });
+        const catalogue = {};
+
+        allProducts.forEach(product => {
+            if (!catalogue[product.categoria]) {
+                catalogue[product.categoria] = [];
+            }
+
+            catalogue[product.categoria].push({
+                nombre: product.nombre,
+                detalles: product.detalles,
+                precio: product.precio,
+                stock: product.stock
+            });
+        });
+
+        const formattedCatalogue = Object.entries(catalogue).map(([categoria, productos]) => ({
+            categoria,
+            productos
+        }));
+
+        return res.status(200).json({
+            msg: "|------------PRODUCT CATALOG------------|",
+            catalogue: formattedCatalogue
+        });
+    } else {
+        const allProducts = await Product.find({ estado: true });
+        const catalogue = allProducts.map(product => {
+            return {
+                nombre: product.nombre,
+                detalles: product.detalles,
+                categoria: product.categoria,
+                precio: product.precio,
+                stock: product.stock
+            }
+        });
+        return res.status(200).json({
+            msg: "|------------PRODUCT CATALOG------------|",
+            catalogue
+        });
+    }
+}
+
 //Visiualizar productos individuales
 export const productViewOne = async (req, res) => {
     const { nombre } = req.body;
@@ -53,7 +101,7 @@ export const productViewOne = async (req, res) => {
     }
 
     res.status(200).json({
-        msg: "|------------PRODUCT-----------|",
+        msg: "|------------PRODUCT SELECTED-----------|",
         productClean
     });
 }
@@ -165,5 +213,24 @@ export const productBestSell = async (req, res) => {
     res.status(200).json({
         msg: "|------------PRODUCTS BEST SELLERS------------|",
         productsBestSold
+    });
+}
+
+//MOSTAR PRODUCTOS POR CATEGORIA
+
+export const productByCategory = async (req, res) => {
+    const { categoria } = req.body;
+    const products = await Product.find({ categoria: categoria });
+    const productsByCategory = products.map(product => {
+        return {
+            nombre: product.nombre,
+            detalles: product.detalles,
+            precio: product.precio,
+            stock: product.stock
+        }
+    });
+    res.status(200).json({
+        msg: "|------------PRODUCTS BY CATEGORY------------|",
+        productsByCategory
     });
 }
