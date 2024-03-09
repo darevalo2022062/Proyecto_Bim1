@@ -53,7 +53,7 @@ export const productViewOne = async (req, res) => {
     }
 
     res.status(200).json({
-        msg: "|------------PRODUCT CATALOG------------|",
+        msg: "|------------PRODUCT-----------|",
         productClean
     });
 }

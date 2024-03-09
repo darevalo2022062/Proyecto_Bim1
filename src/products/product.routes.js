@@ -47,6 +47,17 @@ router.get(
     ], productViewOne
 );
 
+//Visualizar producto Cliente
+router.get(
+    '/getProduct',
+    [
+        validarClient,
+        check('nombre').not().isEmpty().withMessage('The field "nombre" is empty ❌'),
+        check('nombre').custom(verifProduct),
+        validar
+    ], productViewOne
+);
+
 //Visualizar Inventario de productos
 router.get(
     '/getInventory',
