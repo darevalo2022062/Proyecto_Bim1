@@ -12,6 +12,7 @@ import userPath from '../src/users/user.routes.js';
 import authPath from '../src/auth/auth.routes.js';
 import cartPath from '../src/obejctsTaken/objectTaken.routes.js';
 import purchasePath from '../src/sales/sale.routes.js';
+import billPath from '../src/bills/bill.routes.js';
 
 class Server {
     constructor() {
@@ -22,7 +23,8 @@ class Server {
         this.userPath = '/shopKinal/v1/user';
         this.authPath = '/shopKinal/v1/auth';
         this.cartPath = '/shopKinal/v1/cart';
-        this.purchasePath = '/shopKinal/v1/purchase'
+        this.purchasePath = '/shopKinal/v1/purchase';
+        this.billPath = '/shopKinal/v1/bill';
         this.middlewares();
         this.routes();
         this.conectDB();
@@ -51,6 +53,7 @@ class Server {
         this.app.use(this.authPath, authPath);
         this.app.use(this.cartPath, cartPath);
         this.app.use(this.purchasePath, purchasePath);
+        this.app.use(this.billPath, billPath);
     }
 
     async conectDB() {
